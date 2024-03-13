@@ -11,5 +11,8 @@
   <script src="/socket.io/socket.io.js"></script>
   <script>
     let socket = io();
+    socket.on('message', (data) => {
+      document.write(data);
+    });
   </script>
 </html>

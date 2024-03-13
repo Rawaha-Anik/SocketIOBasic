@@ -9,6 +9,9 @@ app.get('/', (req, res) => {
 const socketio = new Server(expressServer);
 socketio.on('connection', (socket) => {
   console.log('new User Connected');
+  setTimeout(() => {
+    socket.send('Rawaha Anik');
+  }, 10000);
   socket.on('disconnect', () => {
     console.log('User Disconnected');
   });
