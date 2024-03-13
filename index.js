@@ -7,23 +7,16 @@ app.get('/', (req, res) => {
   res.sendFile(__dirname + '/index.html');
 });
 const socketio = new Server(expressServer);
+let cnt = 0;
 socketio.on('connection', (socket) => {
   console.log('new User Connected');
-  // setTimeout(() => {
-  //   socket.send('Rawaha Anik');
-  // }, 10000);
-
-  // setInterval(() => {
-  //   let d = new Date();
-  //   let t = d.getTime();
-  //   // socket.send(t);
-  //   socket.emit('rawaha', `This is ${t}`);
-  // }, 1000);
-  // socket.on('disconnect', () => {
-  //   console.log('User Disconnected');
-  // });
-  socket.on('Rawaha', (message) => {
-    console.log(message);
+  cnt++;
+  console.log(`number of users: ${cnt}`);
+  socketio.sockets.emit('myBroadCast', 'hello everyone !');
+  socket.on('disconnect', () => {
+    console.log('User Disconnected');
+    cnt--;
+    console.log(`number of users: ${cnt}`);
   });
 });
 expressServer.listen(8080, () => {
