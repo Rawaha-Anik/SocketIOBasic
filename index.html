@@ -12,7 +12,7 @@
   <script src="/socket.io/socket.io.js"></script>
   <script>
     let socket = io();
-    socket.on('message', (data) => {
+    socket.on('rawaha', (data) => {
       document.getElementById('myTime').innerHTML = data;
     });
   </script>

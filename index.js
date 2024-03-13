@@ -16,8 +16,9 @@ socketio.on('connection', (socket) => {
   setInterval(() => {
     let d = new Date();
     let t = d.getTime();
-    socket.send(t);
-  }, 2000);
+    // socket.send(t);
+    socket.emit('rawaha', `This is ${t}`);
+  }, 1000);
   socket.on('disconnect', () => {
     console.log('User Disconnected');
   });
