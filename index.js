@@ -22,7 +22,7 @@ socketio.on('connection', (socket) => {
   // socket.on('disconnect', () => {
   //   console.log('User Disconnected');
   // });
-  socket.on('message', (message) => {
+  socket.on('Rawaha', (message) => {
     console.log(message);
   });
 });
