@@ -6,14 +6,20 @@
     <title>First Socket IO</title>
   </head>
   <body>
-    Hello
-    <h1 id="myTime"></h1>
+    <input type="text" id="name" />
+    <button onclick="send()" id="send">Send</button>
+    <!-- Hello -->
+    <!-- <h1 id="myTime"></h1> -->
   </body>
   <script src="/socket.io/socket.io.js"></script>
   <script>
     let socket = io();
-    socket.on('rawaha', (data) => {
-      document.getElementById('myTime').innerHTML = data;
-    });
+    const send = () => {
+      let name = document.getElementById('name').value;
+      socket.send(name);
+    };
+    // socket.on('rawaha', (data) => {
+    //   document.getElementById('myTime').innerHTML = data;
+    // });
   </script>
 </html>
