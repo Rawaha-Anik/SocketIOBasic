@@ -7,12 +7,13 @@
   </head>
   <body>
     Hello
+    <h1 id="myTime"></h1>
   </body>
   <script src="/socket.io/socket.io.js"></script>
   <script>
     let socket = io();
     socket.on('message', (data) => {
-      document.write(data);
+      document.getElementById('myTime').innerHTML = data;
     });
   </script>
 </html>
