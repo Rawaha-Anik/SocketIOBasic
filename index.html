@@ -11,8 +11,8 @@
   </body>
   <script src="/socket.io/socket.io.js"></script>
   <script>
-    let socket = io();
-    socket.on('myBroadCast', (data) => {
+    let socket = io('/sell');
+    socket.on('myEvent', (data) => {
       document.getElementById('message').innerHTML = data;
     });
   </script>
